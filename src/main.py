@@ -1,8 +1,9 @@
 import logging
-from modules.arguments import Arguments
-from modules.log_parser import LogParser
-from modules.sid_associator import SidAssociator
-from modules.sid_parser import SidParser
+from modules.Arguments import Arguments
+from modules.LogParser import LogParser
+from modules.SidAssociator import SidAssociator
+from modules.SidParser import SidParser
+
 logging.basicConfig(level=logging.INFO)
 
 

@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/src/main.py",
             "console": "integratedTerminal",
-            "args": ["-log=./resource/log.txt", "-result=./resource/result.txt", "-url="],
+            "args": ["-log=./resource/log.txt", "-result=./resource/result.txt", "-url=https://www.lyngsat.com/packages/NTV-Plus-Vostok.html"],
         }
     ]
 }

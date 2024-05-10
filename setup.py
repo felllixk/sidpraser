@@ -10,7 +10,8 @@ setup(
     install_requires=[
         'requests',
         'bs4',
-        'pyqt5',
+        'PyQt6',
+        'pyqt-tools',
         'pyinstaller'
     ],
     classifiers=[
