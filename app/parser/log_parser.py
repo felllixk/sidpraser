@@ -3,28 +3,31 @@ import logging
 
 class LogParser:
     def parse(self, filename: str) -> list[str]:
-        rawParsedLines = self.loadLines(filename)
-        unifyLines = self.unifyLines(rawParsedLines)
+        logLines = self.loadLines(filename)
+        hexes = self.parseHexes(logLines)
+        unifyLines = self.unifyLines(hexes)
         sids = self.parseSids(unifyLines)
         return sids
 
     def loadLines(self, filename: str) -> list[str]:
-        parsedLines: list[str] = []
+        lines: list[str] = []
         try:
             with open(filename, 'r') as file:
                 lines = file.readlines()
-                for line in lines:
-                    index = line.find('0B00&000000/')
-                    if index != -1:
-                        shortened_line = line[index +
-                                              len('0B00&000000/'):index + len('0B00&000000/') + 4]
-                        parsedLines.append(shortened_line)
-                    else:
-                        parsedLines.append(line)
         except FileNotFoundError:
             logging.error('Файл логов не найден')
             raise
-        return parsedLines
+        return lines
+
+    def parseHexes(self, lines: list[str]):
+        parsed: list[str] = []
+        for line in lines:
+            index_of_ampersand = line.find('&')
+            parsed.append(
+                line[index_of_ampersand + 8:index_of_ampersand + 12]
+            )
+
+        return parsed
 
     def unifyLines(self, lines: list[str]) -> list[str]:
         return set(lines)

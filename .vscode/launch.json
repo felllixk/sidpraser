@@ -8,7 +8,7 @@
             "name": "Python:Запуск main.py с аргументами",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/src/main.py",
+            "program": "${workspaceFolder}/main.py",
             "console": "integratedTerminal",
             "args": ["-log=./resource/log.txt", "-result=./resource/result.txt", "-url=https://www.lyngsat.com/packages/NTV-Plus-Vostok.html"],
         }

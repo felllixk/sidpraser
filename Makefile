@@ -1,5 +1,5 @@
 build:
-	pyinstaller --onefile src/main.py --name sidparser --specpath build
+	pyinstaller sidparser.spec
 
 clean:
 	rm -rf build dist *.spec

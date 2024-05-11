@@ -1,14 +1,11 @@
 
 class SidAssociator:
     logSids: list[str] = []
+    result: list[str | None] = []
 
-    def __init__(self, logSids: list[str]) -> None:
-        self.logSids = logSids
-        pass
-
-    def associateSid(self, sidMap: dict[str]) -> dict[str | None]:
+    def associateSid(self, sidMap: dict[str], logSids: list[str]) -> dict[str | None]:
         map: dict[str | None] = {}
-        for sid in self.logSids:
+        for sid in logSids:
             map[sid] = sidMap.get(sid, None)
         return map
 
